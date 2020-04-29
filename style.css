@@ -1,34 +1,70 @@
-body{
-    background-color: #C0C0C0;
+body, html {
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+    height:100%;
+    color: #43B929;
+    font-family: 'Raleway', sans-serif;
 }
 
-.quote-container {
+@media (min-width: 0px) {
+	html {
+		font-size: 8px;
+	}
+}
+
+@media (min-width: 392px) {
+	html {
+		font-size: 10px;
+	}
+}
+
+@media (min-width: 576px) {
+	html {
+		font-size: 12px;
+	}
+}
+
+@media (min-width: 768px) {
+	html {
+		font-size: 14px;
+	}
+}
+
+@media (min-width: 992px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+@media (min-width: 1200px) {
+	html {
+		font-size: 18px;
+	}
+}
+
+#quote-container {
     /* Center */
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     width: 50%;
     height: 30%;
-    margin: auto;
-    border: 3px solid black;
+    margin: 0 auto;
+    border: 3px solid #43B929;
 
     /* * */
-    padding: 1em;
+    padding: 10px;
 
-    text-align: center;
+    text-align: justify;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
 #quote-body {
-    font-family: 'Raleway', sans-serif;
     font-size: 3em;
 }
 
 #quote-author {
-    font-family: 'Raleway', sans-serif;
     font-size: 1.5em;
+    text-align: end;
+    text-decoration: underline;
 }
