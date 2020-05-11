@@ -9,37 +9,43 @@ body, html {
 
 @media (min-width: 0px) {
 	html {
-		font-size: 8px;
+		font-size: 4px;
 	}
 }
 
-@media (min-width: 392px) {
+@media (min-width: 250px) {
 	html {
-		font-size: 10px;
+		font-size: 6px;
+	}
+}
+
+@media (min-width: 360px) {
+	html {
+		font-size: 8px;
 	}
 }
 
 @media (min-width: 576px) {
 	html {
-		font-size: 12px;
+		font-size: 10px;
 	}
 }
 
 @media (min-width: 768px) {
 	html {
-		font-size: 14px;
+		font-size: 12px;
 	}
 }
 
 @media (min-width: 992px) {
 	html {
-		font-size: 16px;
+		font-size: 14px;
 	}
 }
 
 @media (min-width: 1200px) {
 	html {
-		font-size: 18px;
+		font-size: 16px;
 	}
 }
 
@@ -56,11 +62,17 @@ body, html {
     text-align: justify;
     display: flex;
     justify-content: center;
-    flex-direction: column;
+	flex-direction: column;
+	
+	transition-property: width height;
+	transition-duration: .3s;
 }
 
 #quote-body {
-    font-size: 3em;
+	font-size: 3em;
+	
+	transition-property: font-size;
+	transition-duration: .3s;
 }
 
 #quote-author {
