@@ -16,16 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
         quote_body.innerText = "We cannot retrive the phrase for today. But let us tell you that you are amazing and do not let anybody to tell you that you are not.";
     });
 
-    fetch('http://thecolorapi.com/scheme?hex=8CFF98&count=6', { method: 'GET'})
-    .then(response => response.json())
-    .then(colors => {
-        console.log(colors);
-
-    })
-    .catch((err) => {
-        console.error(err);
-    });
-
     setRandomBackgroundColorToElement(document.body, BACKGROUND_COLORS);
     setRandomColorToElement(document.getElementById("quote-container"), FONT_COLORS);
 });
@@ -34,18 +24,10 @@ const getRandomArbitrary = (min, max) => Math.floor(Math.random() * (max - min) 
 
 function setRandomBackgroundColorToElement(element, colors){
     let randomIndex = getRandomArbitrary(0, colors.length); 
-    element.style.setProperty('--bg-color', '#0047AB');
+    element.style.setProperty('--bg-color', colors[randomIndex]);
 }
 
 function setRandomColorToElement(element, colors){
     let randomIndex = getRandomArbitrary(0, colors.length);
-    element.style.setProperty('--color', '#0047AB');
-}
-
-function sortHexColors(hexColors) {
-    let intColors = hexColors.map(hexColor => parseInt(hexColor.split('#')[1], 16));
-
-    let sortedHexColors = intColors.map(intColor => '#' + intColor.toString(16));
-
-    return sortHexColors;
+    element.style.setProperty('--color', colors[randomIndex]);
 }
