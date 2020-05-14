@@ -1,9 +1,15 @@
+:root {
+	--color: #CEFF1A;
+	--bg-color: #34344A;
+}
+
 body, html {
     display: flex;
 	flex-direction: column;
 	justify-content: center;
-    height:100%;
-    color: #43B929;
+	height:100%;
+	margin: 0;
+	background-color: var(--bg-color);
     font-family: 'Raleway', sans-serif;
 }
 
@@ -50,33 +56,22 @@ body, html {
 }
 
 #quote-container {
-    /* Center */
     width: 50%;
     height: 30%;
     margin: 0 auto;
-    border: 3px solid #43B929;
-
-    /* * */
-    padding: 10px;
-
+	padding: 10px;
+	color: var(--color);
     text-align: justify;
     display: flex;
     justify-content: center;
 	flex-direction: column;
-	
-	transition-property: width height;
-	transition-duration: .3s;
 }
 
 #quote-body {
 	font-size: 3em;
-	
-	transition-property: font-size;
-	transition-duration: .3s;
 }
 
 #quote-author {
     font-size: 1.5em;
     text-align: end;
-    text-decoration: underline;
 }
