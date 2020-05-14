@@ -39,7 +39,7 @@ function setRandomBackgroundColorToElement(element, colors){
 
 function setRandomColorToElement(element, colors){
     let randomIndex = getRandomArbitrary(0, colors.length);
-    element.style.setProperty('--color', '#ffffff');
+    element.style.setProperty('--color', '#0047AB');
 }
 
 function sortHexColors(hexColors) {
