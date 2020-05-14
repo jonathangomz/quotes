@@ -21,13 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 const getRandomArbitrary = (min, max) => Math.floor(Math.random() * (max - min) + min);
+const getRandIndex = (arr) => getRandomArbitrary(0, arr.length);
+const getRandColor = (colors) => colors[getRandIndex(colors)];
 
-function setRandomBackgroundColorToElement(element, colors){
-    let randomIndex = getRandomArbitrary(0, colors.length); 
-    element.style.setProperty('--bg-color', colors[randomIndex]);
-}
-
-function setRandomColorToElement(element, colors){
-    let randomIndex = getRandomArbitrary(0, colors.length);
-    element.style.setProperty('--color', colors[randomIndex]);
-}
+const setRandomBackgroundColorToElement = (element, colors) => element.style.setProperty('--bg-color', getRandColor(colors));
+const setRandomColorToElement = (element, colors) => element.style.setProperty('--color', getRandColor(colors));
