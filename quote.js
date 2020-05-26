@@ -5,20 +5,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const quote_body = document.getElementById('quote-body');
     const quote_author = document.getElementById('quote-author');
 
-    fetch('https://quotes.rest/qod?language=en', { method: 'GET'})
-    .then(response => response.json())
-    .then(json => {
-        quote_body.innerText = json.contents.quotes[0].quote;
-        quote_author.innerText = json.contents.quotes[0].author;
-    })
-    .catch((err) => {
-        console.error(err);
-        quote_body.innerText = "We cannot retrive the phrase for today. But let us tell you that you are amazing and do not let anybody to tell you that you are not.";
+    getQuoteAndAuthor()
+    .then(([quote, author]) => {
+        quote_body.innerText = quote;
+        quote_author.innerText = author;
     });
 
+
     setRandomBackgroundColorToElement(document.body, BACKGROUND_COLORS);
-    setRandomColorToElement(document.getElementById("quote-container"), FONT_COLORS);
+    setRandomColorToElement(document.getElementById('quote-container'), FONT_COLORS);
 });
+
+const getQuoteAndAuthor = async () => {
+    try {
+        let response = await fetch('https://quotes.rest/qod?language=en', { method: 'GET'});
+        if(response.ok){
+            let json = await response.json();
+            return [json.contents.quotes[0].quote, json.contents.quotes[0].author];
+        }else {
+            throw "Couldn't retrive";
+        }
+    }catch(err){
+        return ['We cannot retrive the phrase for today. But let me tell you that you are amazing and do not let anybody to tell you that you are not.', 'JonathanGomz'];
+    }
+}
+
+    
 
 const getRandomArbitrary = (min, max) => Math.floor(Math.random() * (max - min) + min);
 const getRandIndex = (arr) => getRandomArbitrary(0, arr.length);
